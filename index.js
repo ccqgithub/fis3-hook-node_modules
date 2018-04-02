@@ -25,6 +25,10 @@ function tryNpmLookUp(info, file, opts) {
         }
 
         var currentPkg = file ? resolver.resolveSelf(file.dirname) : null;
+        
+        // fix peerDependencies bug
+        currentPkg.json.dependencies = Object.assign(currentPkg.json.dependencies || {}, currentPkg.json.peerDependencies || {});
+
         var pkg = resolver.resolvePkg(prefix, currentPkg && currentPkg.json.dependencies && currentPkg.json.dependencies[prefix] ? currentPkg.json.dependencies[prefix] : '*', file.dirname);
         if (!pkg) {
             return info;

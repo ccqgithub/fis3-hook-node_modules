@@ -1,5 +1,5 @@
 {
-  "name": "fis3-hook-node_modules",
+  "name": "fis3-hook-node_modules-peer",
   "version": "2.3.0",
   "description": "fis3 npm support",
   "main": "index.js",
